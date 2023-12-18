@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework import generics, filters
 from django_filters.rest_framework import DjangoFilterBackend
 
@@ -8,7 +7,7 @@ from .filters import ProductFilter
 
 
 # Create your views here.
-class CategoryView(generics.ListCreateAPIView):
+class CategoryView(generics.ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     filter_backends = [filters.SearchFilter]
@@ -17,7 +16,7 @@ class CategoryView(generics.ListCreateAPIView):
     # permission_classes = [permissions.IsAuthenticated, IsAdminOrReadOnly]
 
 
-class BrandView(generics.ListCreateAPIView):
+class BrandView(generics.ListAPIView):
     queryset = Brand.objects.all()
     serializer_class = BrandSerializer
     filter_backends = [filters.SearchFilter]
@@ -26,7 +25,7 @@ class BrandView(generics.ListCreateAPIView):
     # permission_classes = [permissions.IsAuthenticated, IsAdminOrReadOnly]
 
 
-class ProductView(generics.ListCreateAPIView):
+class ProductView(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filter_backends = [filters.SearchFilter, DjangoFilterBackend, filters.OrderingFilter]
@@ -37,6 +36,6 @@ class ProductView(generics.ListCreateAPIView):
     # permission_classes = [permissions.IsAuthenticated, IsAdminOrReadOnly]
 
 
-class SingleProductSerializer(generics.RetrieveUpdateAPIView):
+class SingleProductView(generics.RetrieveUpdateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer

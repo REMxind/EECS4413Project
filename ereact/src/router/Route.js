@@ -4,7 +4,8 @@ import Register from "../contents/user/register/Register";
 import Login from "../contents/user/login/Login";
 import NotFound from "../contents/notfound/NotFound";
 import Layout from "../Layout";
-import Products from "../contents/products/list/Products";
+import ProductList from "../contents/products/searchresult/component/ProductList";
+import Profile from "../contents/user/profile/Profile";
 import Checkout from "../contents/order/checkout/Checkout";
 import Cart from "../contents/user/cart/Cart";
 import OrdersHistory from "../contents/order/history/OrdersHistory";
@@ -32,11 +33,6 @@ export default [
                 element: <Home />,
                 index: true,
             },
-            // ===== products =====
-            {
-                path: 'product',
-                element: <Products />
-            },
             // ===== product detail =====
             {
                 path: 'product/:id',
@@ -59,14 +55,19 @@ export default [
             },
             // ===== order detail =====
             {
-              path: 'order-detail',
+              path: 'order-detail/:id',
               element: <OrderDetail />
             },
             // ===== search =====
             {
                 path: '/search-result',
                 element: <SearchResult />
-            }
+            },
+            // ===== profile =====
+            {
+                path: '/profile',
+                element: <Profile />
+            },
         ]
     },
     // ===== 404 =====
